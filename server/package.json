@@ -10,7 +10,7 @@
     "clean": "rimraf dist/*",
     "tsc": "tsc",
     "start": "ts-node src/server.ts",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "cluster": "npm run build && pm2 start dist/server.js -i max"
   },
   "keywords": [],
