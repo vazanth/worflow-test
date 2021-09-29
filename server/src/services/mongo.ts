@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { ConnectOptions } from 'mongoose';
 
 const MONGO_URL = process.env.MONGO_URL;
 
@@ -14,9 +14,9 @@ export const mongoConnect = () => {
   mongoose.connect(MONGO_URL!, {
     useNewUrlParser: true, // uses to parse MongoDB connection strings
     useUnifiedTopology: true, // useUnifiedTopology option removes support for several connection options that are no longer relevant with the new topology engine
-    useCreateIndex: true, //ensureIndex() dropped infavor of createIndex()
-    useFindAndModify: false, //Make Mongoose use `findOneAndUpdate()` ---changed to--> findAndModify()
-  });
+    // useCreateIndex: true, //ensureIndex() dropped infavor of createIndex()
+    // useFindAndModify: false, //Make Mongoose use `findOneAndUpdate()` ---changed to--> findAndModify()
+  } as ConnectOptions);
 };
 
 export const mongoDisconnect = () => {

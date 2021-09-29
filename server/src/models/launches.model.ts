@@ -112,7 +112,7 @@ const getAllLaunches = async (skip: number, limit: number) => {
 };
 
 const getLatestFlightNumber = async () => {
-  const latestLaunch = await launches.findOne({}).sort('-flightNumber');
+  const latestLaunch: any = await launches.findOne({}).sort('-flightNumber');
   console.log('latestLaunch', latestLaunch);
   if (!latestLaunch) {
     return DEFAULT_FLIGHT_NUMBER;
@@ -140,7 +140,7 @@ const scheduleNewLaunch = async (launch: Launch) => {
 };
 
 const abortLaunchById = async (id: number) => {
-  const aborted = await launches.updateOne(
+  const aborted: any = await launches.updateOne(
     { flightNumber: id },
     {
       upcoming: false,
